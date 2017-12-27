@@ -1,6 +1,7 @@
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import conexion from './sequelize/db';
+import database from './database';
 import schema from './graphql/schema';
 
 const app = express();
@@ -19,6 +20,9 @@ conexion
 app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: dev,
+  context: {
+    database
+  }
 }));
 
 app.use('/', (req, res) => {
