@@ -11,22 +11,12 @@ const Post = new GraphQLObjectType({
   description: 'Blog post',
   fields() {
     return {
-      title: {
-        type: GraphQLString,
-        resolve(post) {
-          return post.title;
-        },
-      },
-      content: {
-        type: GraphQLString,
-        resolve(post) {
-          return post.content;
-        },
-      },
+      title: { type: GraphQLString },
+      content: { type: GraphQLString },
       person: {
         type: User,
-        resolve(post) {
-          return post.getUser();
+        resolve(parentValues, _, context) {
+          // TODO: Use the context.database interface in order to get the User data for this Post.
         },
       },
     };
