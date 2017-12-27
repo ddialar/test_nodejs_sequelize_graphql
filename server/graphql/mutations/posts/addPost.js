@@ -11,7 +11,7 @@ const addPost = {
         title: { type: new GraphQLNonNull(GraphQLString) },
         content: { type: new GraphQLNonNull(GraphQLString) }
     },
-    resolve(source, args) {
+    resolve(source, args, context) {
         return await context.database.createANewPost(args);
     }
 };
