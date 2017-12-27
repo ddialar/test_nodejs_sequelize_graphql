@@ -8,30 +8,10 @@ const User = new GraphQLObjectType({
     name: 'user',
     fields: () => {
       return {
-        id: {
-          type: GraphQLInt,
-          resolve(user) {
-            return user.id;
-          }
-        },
-        firstname: {
-          type: GraphQLString,
-          resolve(user) {
-            return user.firstname;
-          }
-        },
-        lastname: {
-          type: GraphQLString,
-          resolve(user) {
-            return user.lastname;
-          }
-        },
-        email: {
-          type: GraphQLString,
-          resolve(user) {
-            return user.email;
-          }
-        },
+        id: { type: GraphQLInt },
+        firstname: { type: GraphQLString },
+        lastname: { type: GraphQLString },
+        email: { type: GraphQLString }
       };
     }
   });
