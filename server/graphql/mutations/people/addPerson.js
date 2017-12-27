@@ -11,7 +11,7 @@ const addPerson = {
         lastName: { type: new GraphQLNonNull(GraphQLString) },
         email: { type: new GraphQLNonNull(GraphQLString) }
     },
-    resolve(source, args) {
+    resolve(source, args, context) {
         args.email = args.email.toLowerCase();
         return await context.database.createANewUser(args);
     }
